@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public delegate void ModifyVelocity(ref Vector2 velocity, MovementController player);
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -10,8 +9,8 @@ public class MovementController : MonoBehaviour {
     public float movementSpeed = 10;
     public float acceleration = 10, decceleration = 10;
     public float jumpHeight;
-    public float jumpBufferTime;
-    public float koyoteTime;
+    public float jumpBufferTime = 0.1f;
+    public float koyoteTime = 0.3f;
 
 
     [Space]
@@ -39,8 +38,6 @@ public class MovementController : MonoBehaviour {
 
     public bool grounded {
         get {
-            //Debug.Log($"Movement Controller: World Pos - {transform.position}");
-            //Debug.Log($"Movement Controller: Local Pos - {transform.localPosition}");
             return Physics2D.OverlapBox(groundCheckPos, groundCheckSize, transform.eulerAngles.z, groundCheckMask);
         }
     }
@@ -104,7 +101,7 @@ public class MovementController : MonoBehaviour {
         horizontalInput = station.inputManager.GetSingleAxis(InputManager.InputPreset.Movement);
         facingDir = Mathf.Abs(horizontalInput) > 0 ? Mathf.Sign(horizontalInput) : facingDir;//update facing direction
 
-
+        
         if (station.inputManager.GetButtonDown(InputManager.InputPreset.Jump))
             jumpPress = true;
 
@@ -151,13 +148,14 @@ public class MovementController : MonoBehaviour {
             if (jumpInput > 0)
                 Jump(jumpForce);
         }
+        /*
         else if (airJumpCount < 1) //not on ground but never jumped in the air
             if (jumpPress) {//if jump pressed (again)
                 velocity = new Vector2(velocity.x, 0);//set velocity.y to 0
                 Jump(jumpForce);
-                Debug.Log("Double Jump");
+                //Debug.Log("Double Jump");
                 airJumpCount++;
-            }
+            }*/
     }
 
     public void Jump(float jumpForce) {
