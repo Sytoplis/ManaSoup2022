@@ -5,6 +5,7 @@ public class PollingStation : MonoBehaviour
     public InputManager inputManager;
     public MapGenerator mapGenerator; 
     public PlayerController movementController;
+    public Score score;
 
     public static bool TryGetPollingStation(out PollingStation pollingStation, GameObject oj) {
         pollingStation = FindObjectOfType<PollingStation>();
