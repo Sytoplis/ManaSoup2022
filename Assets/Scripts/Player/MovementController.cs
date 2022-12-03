@@ -12,7 +12,6 @@ public abstract class MovementController : MonoBehaviour
     [SerializeField] public float movementSpeed = 10;
     [SerializeField] public float acceleration = 10, decceleration = 10;
     [SerializeField] public bool enableJump = true;
-    [SerializeField] internal Animator animator;
 
     [Space]
     [Header("Collision Detection")]
@@ -46,10 +45,12 @@ public abstract class MovementController : MonoBehaviour
     [HideInInspector] public float koyoteTime = 0.3f;
     [HideInInspector] private int airJumpCount = 0;
     [HideInInspector] public float currentKoyoteTime { get; private set; }
+    [HideInInspector] internal SpriteRenderer spriteRenderer;
 
 
     public void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rig = GetComponent<Rigidbody2D>();
         velocity = Vector2.zero;
     }

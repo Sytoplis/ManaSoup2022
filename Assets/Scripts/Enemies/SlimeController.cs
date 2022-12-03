@@ -8,7 +8,12 @@ public class SlimeController : MovementController
     [SerializeField][Range(-1, 1)] private float maxLeftMovement;
     [SerializeField][Range(-1, 1)] private float maxRightMovement;
     [SerializeField][Range(0, 100)] private float jumpProbability;
+    [HideInInspector] private Animator animator;
     
+    private new void Awake(){
+        animator = GetComponent<Animator>();
+        base.Awake();
+    }
 
     internal override float DecideGravity()
     {

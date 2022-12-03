@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class PlayerController : MovementController
 {
+    [Space]
+    [Header("Player Specific")]
+    [HideInInspector] private Animator animator;
     public event System.Action<PollingStation> onJumpEvent;
 
     private new void Awake()
     {
+        animator = GetComponent<Animator>();
         if (PollingStation.TryGetPollingStation(out station, gameObject))
         {
             station.movementController = this;
@@ -39,15 +43,26 @@ public class PlayerController : MovementController
     }
     internal override float GetHorizontalInput()
     {
-        return station.inputManager.GetSingleAxis(InputManager.InputPreset.Movement);
+        var speed = station.inputManager.GetSingleAxis(InputManager.InputPreset.Movement);
+        animator.SetFloat("Speed", speed);
+        if (speed < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (speed > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        return speed;
     }
 
     internal override bool GetJumpInput()
     {
         return station.inputManager.GetButton(InputManager.InputPreset.Jump);
     }
-    
-    internal override bool GetDoubleJumpInput(){
+
+    internal override bool GetDoubleJumpInput()
+    {
         return station.inputManager.GetButtonDown(InputManager.InputPreset.Jump);
     }
 }
