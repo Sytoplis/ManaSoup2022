@@ -33,7 +33,7 @@ public class FlipSegment
     }
     public bool SocketFits(Socket2D incoming) {
         for (int d = 0; d < 4; d++)
-            if (GetSocket(d).Matches(incoming.sockets[d]))
+            if (!GetSocket(d).Matches(incoming.sockets[d]))
                 return false;
         return true;
     }

@@ -430,15 +430,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5df6b8a0a258a4e830ac112c119b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSize: {x: 14, y: 14}
+  mapSize: {x: 20, y: 20}
   segments:
   - {fileID: 11400000, guid: 6a0a4168f715dfc4ea76b376854b9dab, type: 2}
   - {fileID: 11400000, guid: a804d3427bcccf94cbc414e3c2f5fb17, type: 2}
   - {fileID: 11400000, guid: fc30d8e0891191e4aa2028bd1cb93554, type: 2}
   - {fileID: 11400000, guid: a12afa919b41937428d56c97e6ba6a9f, type: 2}
   - {fileID: 11400000, guid: cf1c071adbdd6b740939dc1cfb3ccae0, type: 2}
+  - {fileID: 11400000, guid: 3e381a5cf8c495d40b85cc3695810c7d, type: 2}
+  - {fileID: 11400000, guid: 44029e1aed23a9749b4b000899ae233e, type: 2}
+  - {fileID: 11400000, guid: 3b17f737b6e408b45bebdc52e41b0cfa, type: 2}
   - {fileID: 11400000, guid: 473159dd38ba2644ea379e3a04e86b8d, type: 2}
   empty: {fileID: 11400000, guid: 473159dd38ba2644ea379e3a04e86b8d, type: 2}
+  roomTilesize: {x: 5, y: 5}
+  tilemap: {fileID: 1415845702}
+  connectionSockets:
+  - {fileID: 11400000, guid: 27482b45191db93408023d2f4bdb3fed, type: 2}
+  createOnAwake: 1
+  generateSeed: -810908243
+  randomSeed: 1
 --- !u!4 &1105158123
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(MapSegment))]
 public class MapSegmentEditor : Editor
@@ -22,6 +23,9 @@ public class MapSegmentEditor : Editor
         segment.weight = EditorGUILayout.Slider("Weight", segment.weight, 0.0f, 1.0f);
         segment.flippable = EditorGUILayout.Toggle("Flippable", segment.flippable);
 
+        EditorGUILayout.Space();
+
+        segment.prefab = (GameObject)EditorGUILayout.ObjectField("Prefab", segment.prefab, typeof(GameObject), false);
 
         if (EditorGUI.EndChangeCheck()) {
             EditorUtility.SetDirty(segment);

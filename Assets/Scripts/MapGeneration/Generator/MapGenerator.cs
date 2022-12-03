@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
-public class MapGenerator : MonoBehaviour
+public partial class MapGenerator : MonoBehaviour
 {
     public Vector2Int mapSize = Vector2Int.one * 5;
     public MapSegment[] segments;
@@ -10,9 +11,33 @@ public class MapGenerator : MonoBehaviour
     public Array2D<FlipSegment> map;
     private Array2D<PossibilityTile> grid;//FOR DEBUGGING ONLY
 
+    [Space]
+
+    public Vector2Int roomTilesize = Vector2Int.one * 5;
+    public Tilemap tilemap;
+
+    [Header("Postprocessing")]
+    public Socket[] connectionSockets;
+
+    [Space]
+    [Header("Debug")]
+    public bool createOnAwake = true;
+    public int generateSeed = 0;
+    public bool randomSeed = true;
 
     private void Start() {
-        GenerateMap();
+        if(createOnAwake)
+            GenerateMap();
+    }
+
+    public void SetSeed() {
+        int seed = generateSeed;
+        if (randomSeed)
+            seed = Random.Range(int.MinValue, int.MaxValue);
+
+
+        Random.InitState(seed);
+        Debug.Log("Start Procedural Map Generation with the Seed " + seed);
     }
 
 
@@ -51,6 +76,8 @@ public class MapGenerator : MonoBehaviour
     #endregion
 
     public void GenerateMap() {
+        SetSeed();
+
         //---------------- INIT -----------------
         FlipSegment[] flipSegments = GenerateFlipSegments(out float weightSum);
         FlipSegment empty_f = new FlipSegment(empty, false);
@@ -67,7 +94,11 @@ public class MapGenerator : MonoBehaviour
         GenerateConnection(ref grid, flipSegments.Length);
 
         CreateMap(ref grid);
-        //TODO: place the rooms on the tilemap
+
+        MapPostprocessor postprocessor = new MapPostprocessor(map, flipSegments, connectionSockets);
+        postprocessor.PostProcess();
+
+        LoadTilesToTilemap();//place the rooms on the tilemap
     }
 
     /*
@@ -235,12 +266,24 @@ public class MapGenerator : MonoBehaviour
     }
 
     private void LoadTilesToTilemap() {
+        Vector3Int tileSize = roomTilesize.to3Size();
+        BoundsInt placeBounds = new BoundsInt(Vector3Int.zero, tileSize);
+        for(int i = 0; i < map.Length; i++) {
+            if (map[i].segment.prefab == null) continue;
 
+            Vector2Int pos = map.GetPos(i);
+            placeBounds.position = (Vector3Int)pos * tileSize;
+
+            TileStruct ts = map[i].segment.GetTileStruct();
+            ts.LoadTiles(map[i].flip);
+
+            tilemap.SetTilesBlock(placeBounds , ts.tiles);
+        }
     }
 
 
     #region Gizmos for Debugging
-    private void OnDrawGizmos() {
+    private void OnDrawGizmosSelected() {
         if (map != null) {
             for (int i = 0; i < map.Length; i++) {
                 Vector2Int pos = map.GetPos(i);
