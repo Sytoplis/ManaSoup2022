@@ -8,14 +8,14 @@ public class PossibilityTile
     public float weightSum;
     public HashSet<Socket>[] possibleSockets;
 
-    public PossibilityTile(in FlipSegment[] segments, float weightSum) {
+    public PossibilityTile(in FlipSegment[] segments, float weightSum, in List<Socket>[] possibleSockets) {
         possibilities = new List<FlipSegment>(segments);
         this.weightSum = weightSum;
 
         //Create all the hash sets
-        possibleSockets = new HashSet<Socket>[4];
+        this.possibleSockets = new HashSet<Socket>[4];
         for (int d = 0; d < 4; d++)
-            possibleSockets[d] = new HashSet<Socket>();
+            this.possibleSockets[d] = new HashSet<Socket>(possibleSockets[d]);
     }
 
     public void SetPossibleSockets(int d, List<Socket> possibleSockets) {

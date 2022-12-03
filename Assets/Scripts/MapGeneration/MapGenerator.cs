@@ -5,6 +5,7 @@ public class MapGenerator : MonoBehaviour
 {
     public Vector2Int mapSize = Vector2Int.one * 5;
     public MapSegment[] segments;
+    public MapSegment empty;
 
     public Array2D<FlipSegment> map;
     private Array2D<PossibilityTile> grid;//FOR DEBUGGING ONLY
@@ -52,20 +53,24 @@ public class MapGenerator : MonoBehaviour
     public void GenerateMap() {
         //---------------- INIT -----------------
         FlipSegment[] flipSegments = GenerateFlipSegments(out float weightSum);
+        FlipSegment empty_f = new FlipSegment(empty, false);
+
         FindAllPossibleSockets(out List<Socket>[] basePossibilities, in flipSegments);
 
         grid = new Array2D<PossibilityTile>(mapSize);
         for (int i = 0; i < grid.Length; i++)
-            grid[i] = new PossibilityTile(in flipSegments, weightSum);
+            grid[i] = new PossibilityTile(in flipSegments, weightSum, in basePossibilities);
 
         //--------------- GENERATION -------------
-        GenerateConnectionCollisionDFS(ref grid, in basePossibilities, Vector2Int.zero);
+        //GenerateConnectionCollisionDFS(ref grid, in basePossibilities, Vector2Int.zero);
+        CollapseBorderEmpty(ref grid, in empty_f);
         GenerateConnection(ref grid, flipSegments.Length);
 
         CreateMap(ref grid);
         //TODO: place the rooms on the tilemap
     }
 
+    /*
     /// <summary>
     /// generate connection using DFS
     /// </summary>
@@ -98,11 +103,31 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
 
 
     #region Wavefunction Collapse
+
+    void CollapseBorderEmpty(ref Array2D<PossibilityTile> grid, in FlipSegment empty) {
+        for(int x = 0; x < grid.size.x; x++) {// collapse y = 0 and y = gridSize.y - 1
+            Vector2Int pos = new Vector2Int(x, 0);
+            ForceCollapse(ref grid, grid.GetIndex(pos), empty);
+
+            pos.y = grid.size.y-1;
+            ForceCollapse(ref grid, grid.GetIndex(pos), empty);
+        }
+        
+        for (int y = 1; y < grid.size.x-1; y++) {// collapse x = 0 and x = gridSize.x - 1
+            Vector2Int pos = new Vector2Int(0, y);
+            ForceCollapse(ref grid, grid.GetIndex(pos), empty);
+
+            pos.x = grid.size.x - 1;
+            ForceCollapse(ref grid, grid.GetIndex(pos), empty);
+        }
+    }
+
+
 
     bool LowestEntropyCollapse(ref Array2D<PossibilityTile> grid, int flipSegmentCount) {//collapse the box with the smallest number of possibilities
         //Get all the GridBoxes with the lowest Entropy
@@ -209,19 +234,22 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    private void LoadTilesToTilemap() {
+
+    }
+
 
     #region Gizmos for Debugging
     private void OnDrawGizmos() {
         if (map != null) {
             for (int i = 0; i < map.Length; i++) {
                 Vector2Int pos = map.GetPos(i);
-                if (pos.y != 1) continue;
 
                 //if (IsEmpty(map[i])) continue;//skip empty
 
                 //DrawGizmosSegmentPSockets(pos + Vector3.up, 0.5f, grid[i]);
                 for (int j = 0; j < grid[i].possibilities.Count; j++) {
-                    DrawGizmosSegment((Vector3Int)pos + Vector3.down * j, 0.5f, grid[i].possibilities[j]);
+                    DrawGizmosSegment((Vector3Int)pos + Vector3.forward * j, 0.5f, grid[i].possibilities[j]);
                 }
             }
         }

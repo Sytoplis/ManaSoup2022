@@ -430,13 +430,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5df6b8a0a258a4e830ac112c119b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSize: {x: 5, y: 5}
+  mapSize: {x: 14, y: 14}
   segments:
   - {fileID: 11400000, guid: 6a0a4168f715dfc4ea76b376854b9dab, type: 2}
   - {fileID: 11400000, guid: a804d3427bcccf94cbc414e3c2f5fb17, type: 2}
   - {fileID: 11400000, guid: fc30d8e0891191e4aa2028bd1cb93554, type: 2}
   - {fileID: 11400000, guid: a12afa919b41937428d56c97e6ba6a9f, type: 2}
   - {fileID: 11400000, guid: cf1c071adbdd6b740939dc1cfb3ccae0, type: 2}
+  - {fileID: 11400000, guid: 473159dd38ba2644ea379e3a04e86b8d, type: 2}
+  empty: {fileID: 11400000, guid: 473159dd38ba2644ea379e3a04e86b8d, type: 2}
 --- !u!4 &1105158123
 Transform:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public static class DirExt
     public static Direction InvertDir(this Direction d) { return (Direction)InvertDir((int)d); }
 
     public static Direction Flip(this Direction d, bool flip) {//clockwise
-        if (d == Direction.Top || d == Direction.Bottom)
+        if (d == Direction.Top || d == Direction.Bottom || !flip)
             return d;
         else
             return InvertDir(d);
