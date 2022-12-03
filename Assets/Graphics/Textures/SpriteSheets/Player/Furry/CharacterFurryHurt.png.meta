@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2e7c384a57604864d9925dce0d9f2984
+guid: 2a4a1ad26f85e0848a1e595f56b84a65
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -68,7 +68,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slime_0
+      name: CharacterFurryHurt_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 021be23e35181c9469e929a32ff10e00
-      internalID: -704972225
+      spriteID: ea89d87cfab6232479e6a9c50fee2420
+      internalID: 1270886010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_1
+      name: CharacterFurryHurt_1
       rect:
         serializedVersion: 2
         x: 16
@@ -151,35 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b626c0c7d688edc4395252edf0313742
-      internalID: 1723316730
+      spriteID: 512b82b8103ce4c44b385dc5b9f97f22
+      internalID: -786582769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b66fce9892ff384192ac5d780cf54c5
-      internalID: 364383392
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slime_3
+      name: CharacterFurryHurt_2
       rect:
         serializedVersion: 2
         x: 0
@@ -193,50 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c0304e832c3a3d4cb5597159f286456
-      internalID: -1270008111
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slime_4
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 728e1df307c9d3340818ce5f4b2ff847
-      internalID: -1554221193
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slime_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a18ea4c62bffce489cf1ad9bd4645fe
-      internalID: -613080150
+      spriteID: f9bb29005a269fc41bd17c1803ff715e
+      internalID: 1334993267
       vertices: []
       indices: 
       edges: []
@@ -252,12 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Slime_0: -704972225
-      Slime_5: -613080150
-      Slime_3: -1270008111
-      Slime_1: 1723316730
-      Slime_2: 364383392
-      Slime_4: -1554221193
+      CharacterFurryHurt_1: -786582769
+      CharacterFurryHurt_0: 1270886010
+      CharacterFurryHurt_2: 1334993267
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

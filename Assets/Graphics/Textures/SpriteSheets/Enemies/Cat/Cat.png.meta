@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6e55740b696a0e74a97b94bc52ca5d09
+guid: 33567820c9a381046a3bda0ba4bbb66a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SlimeAttack_0
+      name: Cat_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 16
-        height: 16
+        y: 17
+        width: 17
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f06da646ecbf904a951fa359da1dba0
-      internalID: 1708425252
+      spriteID: c9525fb8d08da4e47b41b234bc18585e
+      internalID: -1374434215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_1
+      name: Cat_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
+        x: 17
+        y: 17
+        width: 17
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,41 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e252dc589c832bf43876301dd25035f9
-      internalID: -1021755139
+      spriteID: 98c60a5d79a1def41a2b36a4b0f352ff
+      internalID: -83590508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: afd1ab214c8d78140807fad405c26d4e
-      internalID: 2094586166
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SlimeAttack_3
+      name: Cat_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 17
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c48ebb5639b43a44e96ca2b9d8a453fe
-      internalID: -1761175436
+      spriteID: 13a8b445a3eaf6a489c05c9fd80af6b2
+      internalID: 1147989802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_4
+      name: Cat_3
       rect:
         serializedVersion: 2
-        x: 16
+        x: 17
         y: 0
-        width: 16
-        height: 16
+        width: 17
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,29 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1abf97aa37b80ca488cf576db5d0cf75
-      internalID: 733133613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SlimeAttack_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7344fb0b7d4dc8344b5437967c763ba0
-      internalID: -1443459905
+      spriteID: 615d14108be85d748b4b552e3b95d7cd
+      internalID: -1722992531
       vertices: []
       indices: 
       edges: []
@@ -252,12 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SlimeAttack_0: 1708425252
-      SlimeAttack_2: 2094586166
-      SlimeAttack_4: 733133613
-      SlimeAttack_3: -1761175436
-      SlimeAttack_5: -1443459905
-      SlimeAttack_1: -1021755139
+      Cat_3: -1722992531
+      Cat_0: -1374434215
+      Cat_1: -83590508
+      Cat_2: 1147989802
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

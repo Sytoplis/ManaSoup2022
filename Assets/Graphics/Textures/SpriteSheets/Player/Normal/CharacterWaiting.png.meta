@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6e55740b696a0e74a97b94bc52ca5d09
+guid: 614530ea4c657ce4d818ff2604e23683
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SlimeAttack_0
+      name: CharacterWaiting_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54903611480c6384fb66cc344065c839
+      internalID: -2136528926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterWaiting_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeb19c3853a9ea8499fa566bfd2e8e3a
+      internalID: 1082901653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterWaiting_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e711ea7cd71b67248ab740300055700c
+      internalID: -492977013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterWaiting_3
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f06da646ecbf904a951fa359da1dba0
-      internalID: 1708425252
+      spriteID: f18f4d3acab0db342a1a14edc58ccd70
+      internalID: 1879441025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_1
+      name: CharacterWaiting_4
       rect:
         serializedVersion: 2
         x: 16
@@ -151,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e252dc589c832bf43876301dd25035f9
-      internalID: -1021755139
+      spriteID: 46c5535505f598048b852f8d249b0d48
+      internalID: 584833054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_2
+      name: CharacterWaiting_5
       rect:
         serializedVersion: 2
         x: 32
@@ -172,14 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afd1ab214c8d78140807fad405c26d4e
-      internalID: 2094586166
+      spriteID: a9fca4a06d6b66e4bb7ee3a2b09c73b8
+      internalID: -1425595704
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_3
+      name: CharacterWaiting_6
       rect:
         serializedVersion: 2
         x: 0
@@ -193,50 +256,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c48ebb5639b43a44e96ca2b9d8a453fe
-      internalID: -1761175436
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SlimeAttack_4
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1abf97aa37b80ca488cf576db5d0cf75
-      internalID: 733133613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SlimeAttack_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7344fb0b7d4dc8344b5437967c763ba0
-      internalID: -1443459905
+      spriteID: 68d81412655c44f4d861d10d8826cadf
+      internalID: 73621177
       vertices: []
       indices: 
       edges: []
@@ -252,12 +273,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SlimeAttack_0: 1708425252
-      SlimeAttack_2: 2094586166
-      SlimeAttack_4: 733133613
-      SlimeAttack_3: -1761175436
-      SlimeAttack_5: -1443459905
-      SlimeAttack_1: -1021755139
+      CharacterWaiting_6: 73621177
+      CharacterWaiting_4: 584833054
+      CharacterWaiting_2: -492977013
+      CharacterWaiting_1: 1082901653
+      CharacterWaiting_3: 1879441025
+      CharacterWaiting_0: -2136528926
+      CharacterWaiting_5: -1425595704
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

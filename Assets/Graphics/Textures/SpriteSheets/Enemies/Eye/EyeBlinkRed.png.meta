@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6e55740b696a0e74a97b94bc52ca5d09
+guid: 82aab5da55fceff41be58220b9807670
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,11 +116,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SlimeAttack_0
+      name: EyeBlinkRed_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
+        y: 18
         width: 16
         height: 16
       alignment: 0
@@ -130,18 +130,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f06da646ecbf904a951fa359da1dba0
-      internalID: 1708425252
+      spriteID: 1d4973bbd3ddf8149ad92e247ebde60d
+      internalID: 1342814994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_1
+      name: EyeBlinkRed_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 18
+        y: 18
         width: 16
         height: 16
       alignment: 0
@@ -151,18 +151,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e252dc589c832bf43876301dd25035f9
-      internalID: -1021755139
+      spriteID: 58374fd3e8acd8d45a4ffc63a5cc3010
+      internalID: 1008213300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_2
+      name: EyeBlinkRed_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
+        x: 36
+        y: 18
         width: 16
         height: 16
       alignment: 0
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afd1ab214c8d78140807fad405c26d4e
-      internalID: 2094586166
+      spriteID: 09d9e9ce9b619b74eb49cd369057c1bb
+      internalID: 474566246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_3
+      name: EyeBlinkRed_3
       rect:
         serializedVersion: 2
         x: 0
@@ -193,17 +193,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c48ebb5639b43a44e96ca2b9d8a453fe
-      internalID: -1761175436
+      spriteID: 37a6210100fe2c245b598fdd075a3d50
+      internalID: 474547382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_4
+      name: EyeBlinkRed_4
       rect:
         serializedVersion: 2
-        x: 16
+        x: 18
         y: 0
         width: 16
         height: 16
@@ -214,29 +214,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1abf97aa37b80ca488cf576db5d0cf75
-      internalID: 733133613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SlimeAttack_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7344fb0b7d4dc8344b5437967c763ba0
-      internalID: -1443459905
+      spriteID: 2ff1df24ab5e73e45b0ca365b31632df
+      internalID: -1351559046
       vertices: []
       indices: 
       edges: []
@@ -252,12 +231,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SlimeAttack_0: 1708425252
-      SlimeAttack_2: 2094586166
-      SlimeAttack_4: 733133613
-      SlimeAttack_3: -1761175436
-      SlimeAttack_5: -1443459905
-      SlimeAttack_1: -1021755139
+      EyeBlinkRed_0: 1342814994
+      EyeBlinkRed_2: 474566246
+      EyeBlinkRed_3: 474547382
+      EyeBlinkRed_4: -1351559046
+      EyeBlinkRed_1: 1008213300
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

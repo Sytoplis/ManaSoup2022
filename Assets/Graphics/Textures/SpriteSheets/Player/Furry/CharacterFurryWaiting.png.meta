@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6e55740b696a0e74a97b94bc52ca5d09
+guid: 9140256a03369a74fbcbd2d0bb040f59
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SlimeAttack_0
+      name: CharacterFurryWaiting_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 480f5b657ffa9f7418542d8dcbd304df
+      internalID: -1463779182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterFurryWaiting_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b0f30aaa1d39f43bb8cde88c4554ab
+      internalID: 820104497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterFurryWaiting_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 056285452edbcdf45872aacd0e1faf51
+      internalID: -1456786461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterFurryWaiting_3
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f06da646ecbf904a951fa359da1dba0
-      internalID: 1708425252
+      spriteID: 2acd78371df123740ab623efcf096c6c
+      internalID: -864701185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_1
+      name: CharacterFurryWaiting_4
       rect:
         serializedVersion: 2
         x: 16
@@ -151,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e252dc589c832bf43876301dd25035f9
-      internalID: -1021755139
+      spriteID: bb0663b3d7cc2574db918b4b56391c02
+      internalID: 1668085790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_2
+      name: CharacterFurryWaiting_5
       rect:
         serializedVersion: 2
         x: 32
@@ -172,14 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afd1ab214c8d78140807fad405c26d4e
-      internalID: 2094586166
+      spriteID: c5dc52a17b98b9d4bb4b3ee787c5fe87
+      internalID: -877345172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_3
+      name: CharacterFurryWaiting_6
       rect:
         serializedVersion: 2
         x: 0
@@ -193,50 +256,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c48ebb5639b43a44e96ca2b9d8a453fe
-      internalID: -1761175436
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SlimeAttack_4
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1abf97aa37b80ca488cf576db5d0cf75
-      internalID: 733133613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SlimeAttack_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7344fb0b7d4dc8344b5437967c763ba0
-      internalID: -1443459905
+      spriteID: af6cab7718df3c34080237b25e6265b6
+      internalID: 549093326
       vertices: []
       indices: 
       edges: []
@@ -252,12 +273,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SlimeAttack_0: 1708425252
-      SlimeAttack_2: 2094586166
-      SlimeAttack_4: 733133613
-      SlimeAttack_3: -1761175436
-      SlimeAttack_5: -1443459905
-      SlimeAttack_1: -1021755139
+      CharacterFurryWaiting_6: 549093326
+      CharacterFurryWaiting_3: -864701185
+      CharacterFurryWaiting_1: 820104497
+      CharacterFurryWaiting_5: -877345172
+      CharacterFurryWaiting_4: 1668085790
+      CharacterFurryWaiting_0: -1463779182
+      CharacterFurryWaiting_2: -1456786461
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

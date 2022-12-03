@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6e55740b696a0e74a97b94bc52ca5d09
+guid: bb596867945c4f546a50a02a39f11ca2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -68,7 +68,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -116,11 +116,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SlimeAttack_0
+      name: Catplosion_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
+        y: 21
         width: 16
         height: 16
       alignment: 0
@@ -130,18 +130,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f06da646ecbf904a951fa359da1dba0
-      internalID: 1708425252
+      spriteID: 4198d1f593abb8c4b9a78987d005927d
+      internalID: -1082054377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_1
+      name: Catplosion_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 21
+        y: 21
         width: 16
         height: 16
       alignment: 0
@@ -151,18 +151,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e252dc589c832bf43876301dd25035f9
-      internalID: -1021755139
+      spriteID: 247a0d7c22000734d88783f2ff8adb68
+      internalID: 113218286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_2
+      name: Catplosion_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
+        x: 42
+        y: 21
         width: 16
         height: 16
       alignment: 0
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afd1ab214c8d78140807fad405c26d4e
-      internalID: 2094586166
+      spriteID: 4e9744ba7d994a04283620e18a9acfc0
+      internalID: 1397901321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_3
+      name: Catplosion_3
       rect:
         serializedVersion: 2
         x: 0
@@ -193,17 +193,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c48ebb5639b43a44e96ca2b9d8a453fe
-      internalID: -1761175436
+      spriteID: a8ff8abb5b1724e4c9ac64a55a721ae1
+      internalID: -1316041650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_4
+      name: Catplosion_4
       rect:
         serializedVersion: 2
-        x: 16
+        x: 21
         y: 0
         width: 16
         height: 16
@@ -214,17 +214,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1abf97aa37b80ca488cf576db5d0cf75
-      internalID: 733133613
+      spriteID: 7d68473b38f86eb40b17a07fc43303fa
+      internalID: 1177206612
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeAttack_5
+      name: Catplosion_5
       rect:
         serializedVersion: 2
-        x: 32
+        x: 42
         y: 0
         width: 16
         height: 16
@@ -235,8 +235,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7344fb0b7d4dc8344b5437967c763ba0
-      internalID: -1443459905
+      spriteID: e4bd29f8533dc584e971e45771e3393a
+      internalID: -1058566862
       vertices: []
       indices: 
       edges: []
@@ -252,12 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SlimeAttack_0: 1708425252
-      SlimeAttack_2: 2094586166
-      SlimeAttack_4: 733133613
-      SlimeAttack_3: -1761175436
-      SlimeAttack_5: -1443459905
-      SlimeAttack_1: -1021755139
+      Catplosion_2: 1397901321
+      Catplosion_4: 1177206612
+      Catplosion_0: -1082054377
+      Catplosion_3: -1316041650
+      Catplosion_1: 113218286
+      Catplosion_5: -1058566862
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
