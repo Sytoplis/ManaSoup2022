@@ -14,7 +14,9 @@ public partial class MapGenerator : MonoBehaviour
     [Space]
 
     public Vector2Int roomTilesize = Vector2Int.one * 5;
-    public Tilemap tilemap;
+    public Tilemap[] tilemaps;
+    public MapSegment startTile;
+    public MapSegment endTile;
 
     [Header("Postprocessing")]
     public Socket[] connectionSockets;
@@ -141,20 +143,27 @@ public partial class MapGenerator : MonoBehaviour
     #region Wavefunction Collapse
 
     void CollapseBorderEmpty(ref Array2D<PossibilityTile> grid, in FlipSegment empty) {
+        ForceCollapse(ref grid, grid.GetIndex(new Vector2Int(0, 1)), new FlipSegment(startTile, false));
+
+        
         for(int x = 0; x < grid.size.x; x++) {// collapse y = 0 and y = gridSize.y - 1
             Vector2Int pos = new Vector2Int(x, 0);
-            ForceCollapse(ref grid, grid.GetIndex(pos), empty);
+            if (grid[pos].possibilities.Count > 1)
+                ForceCollapse(ref grid, grid.GetIndex(pos), empty);
 
             pos.y = grid.size.y-1;
-            ForceCollapse(ref grid, grid.GetIndex(pos), empty);
+            if (grid[pos].possibilities.Count > 1)
+                ForceCollapse(ref grid, grid.GetIndex(pos), empty);
         }
         
         for (int y = 1; y < grid.size.y-1; y++) {// collapse x = 0 and x = gridSize.x - 1
             Vector2Int pos = new Vector2Int(0, y);
-            ForceCollapse(ref grid, grid.GetIndex(pos), empty);
+            if (grid[pos].possibilities.Count > 1)
+                ForceCollapse(ref grid, grid.GetIndex(pos), empty);
 
             pos.x = grid.size.x - 1;
-            ForceCollapse(ref grid, grid.GetIndex(pos), empty);
+            if (grid[pos].possibilities.Count > 1)
+                ForceCollapse(ref grid, grid.GetIndex(pos), empty);
         }
     }
 
@@ -265,6 +274,17 @@ public partial class MapGenerator : MonoBehaviour
         }
     }
 
+
+    private Transform prefabParent;
+    private Transform GetPrefabParent() {
+        if (prefabParent == null) {
+            GameObject go = new GameObject("Map Prefabs");
+            prefabParent = go.transform;
+        }
+        return prefabParent;
+    }
+
+
     private void LoadTilesToTilemap() {
         Vector3Int tileSize = roomTilesize.to3Size();
         BoundsInt placeBounds = new BoundsInt(Vector3Int.zero, tileSize);
@@ -277,7 +297,16 @@ public partial class MapGenerator : MonoBehaviour
             TileStruct ts = map[i].segment.GetTileStruct();
             ts.LoadTiles(map[i].flip);
 
-            tilemap.SetTilesBlock(placeBounds , ts.tiles);
+            for(int tm = 0; tm < tilemaps.Length; tm++) {
+                if (tm >= ts.tilemaps.Length) break;
+                tilemaps[tm].SetTilesBlock(placeBounds, ts.tiles[tm]);
+            }
+
+
+            //Load prefab
+            if(ts.prefab != null) {
+                Instantiate(ts.prefab, placeBounds.position, Quaternion.identity, GetPrefabParent());
+            }
         }
     }
 

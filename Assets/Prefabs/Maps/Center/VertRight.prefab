@@ -50,6 +50,8 @@ MonoBehaviour:
   bounds:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 10, y: 10, z: 1}
+  tilemaps:
+  - {fileID: 1613119089972884725}
 --- !u!156049354 &6631534461171593748
 Grid:
   m_ObjectHideFlags: 0

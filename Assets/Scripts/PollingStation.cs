@@ -6,7 +6,7 @@ public class PollingStation : MonoBehaviour
     public MapGenerator mapGenerator; 
     public PlayerController movementController;
 
-    public static bool TryGetPollingStation(ref PollingStation pollingStation, GameObject oj) {
+    public static bool TryGetPollingStation(out PollingStation pollingStation, GameObject oj) {
         pollingStation = FindObjectOfType<PollingStation>();
 
         if (!pollingStation) {

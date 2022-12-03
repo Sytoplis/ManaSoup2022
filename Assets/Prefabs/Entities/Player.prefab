@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4008485725095752726}
   - component: {fileID: 4008485725095752725}
   - component: {fileID: 4008485725095752724}
-  - component: {fileID: 4008485725095752731}
+  - component: {fileID: 1676087409848937832}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -134,7 +134,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &4008485725095752731
+--- !u!114 &1676087409848937832
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,20 +143,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4008485725095752730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 978eb2864363c364896c9bb6bca0dbac, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a3d11368a0fcfb468a4c7edf3ce8b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpHeight: 4
   movementSpeed: 10
   acceleration: 10
   decceleration: 10
-  jumpHeight: 4
-  jumpBufferTime: 0.1
-  koyoteTime: 0.3
-  fallGravity: 10
-  lowJumpGravity: 20
-  upGravity: 15
+  enableJump: 1
   groundCheckOffset: -0.51
   groundCheckSize: {x: 0.96, y: 0.01}
   groundCheckMask:
     serializedVersion: 2
     m_Bits: 1
+  fallGravity: 15
+  lowJumpGravity: 20
+  upGravity: 12
+  koyoteTime: 0.3
