@@ -301,6 +301,9 @@ public partial class MapGenerator : MonoBehaviour
             for(int tm = 0; tm < tilemaps.Length; tm++) {
                 if (tm >= ts.tilemaps.Length) break;
                 tilemaps[tm].SetTilesBlock(placeBounds, ts.tiles[tm]);
+
+                foreach (Vector3Int locPos in ts.bounds.allPositionsWithin)
+                    tilemaps[tm].SetTransformMatrix(locPos + placeBounds.position, ts.transforms[tm][locPos.x + locPos.y * ts.bounds.size.x]);
             }
 
 
