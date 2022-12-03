@@ -68,7 +68,7 @@ public class InputManager : MonoBehaviour
     Dictionary<InputPreset, List<string>> inputKeywords;
     public enum InputPreset
     {
-        Movement, Jump, Interact
+        Movement, Jump, Interact, Attack
     }
 
 
@@ -80,6 +80,7 @@ public class InputManager : MonoBehaviour
         inputKeywords.Add(InputPreset.Movement, new List<string>() { "Move", "Movement" });
         inputKeywords.Add(InputPreset.Jump, new List<string>() { "Jump" });
         inputKeywords.Add(InputPreset.Interact, new List<string>() { "Interact" });
+        inputKeywords.Add(InputPreset.Attack, new List<string>() { "Attack" });
 
 
         if (inputAsset.actionMaps.Count > 0)
