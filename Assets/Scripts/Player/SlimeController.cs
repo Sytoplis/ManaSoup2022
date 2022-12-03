@@ -30,8 +30,8 @@ public class SlimeController : MovementController
 
     internal override bool GetJumpInput()
     {
-        var random = Random.Range(0,100000f);
-        if(jumpProbability < random){
+        var random = Random.Range(0, 100/jumpProbability);
+        if(1 >= random){
             return true;
         }
         return false;
