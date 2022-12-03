@@ -4,9 +4,9 @@ public class PlayerController : MovementController
 {
     public event System.Action<PollingStation> onJumpEvent;
 
-    private void Awake()
+    private new void Awake()
     {
-        if (PollingStation.TryGetPollingStation(ref station, gameObject))
+        if (PollingStation.TryGetPollingStation(out station, gameObject))
         {
             station.movementController = this;
         }
