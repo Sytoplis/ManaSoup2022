@@ -21,12 +21,17 @@ public class Interactor : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.TryGetComponent(out Interactable interactable))
+        if(collision.TryGetComponent(out Interactable interactable)) {
             interactables.Add(interactable);
+            interactable.OnInteractStartPossible();
+        }
+            
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.TryGetComponent(out Interactable interactable))
+        if (collision.TryGetComponent(out Interactable interactable)) {
             interactables.Remove(interactable);
+            interactable.OnInteractStopPossible();
+        }
     }
 }

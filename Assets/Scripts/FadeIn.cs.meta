@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 4c6b949cd71e8fc4fbef5933667ed54c
+guid: b06c69f78a4c9384688b07d8aa2d572e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - interactionLightPrefab: {fileID: 5038923362480902061, guid: e31e3615b34e4904099df906cdbe4056, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

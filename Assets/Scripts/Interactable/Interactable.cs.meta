@@ -3,7 +3,8 @@ guid: 4275571a991bcf145a05ebfff5c6fc31
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - interactionLightPrefab: {fileID: 5038923362480902061, guid: e31e3615b34e4904099df906cdbe4056, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
