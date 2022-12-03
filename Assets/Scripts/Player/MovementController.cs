@@ -1,177 +1,195 @@
+using System;
 using UnityEngine;
 
 public delegate void ModifyVelocity(ref Vector2 velocity, MovementController player);
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class MovementController : MonoBehaviour {
-    [Space]
+[RequireComponent(typeof(Collider2D))]
+public abstract class MovementController : MonoBehaviour
+{
     [Header("General")]
-    public float movementSpeed = 10;
-    public float acceleration = 10, decceleration = 10;
-    public float jumpHeight;
-    public float jumpBufferTime = 0.1f;
-    public float koyoteTime = 0.3f;
-
-
-    [Space]
-
-    public float fallGravity;
-    public float lowJumpGravity;
-    public float upGravity;
-
+    [SerializeField] public float jumpHeight;
+    [SerializeField] public float movementSpeed = 10;
+    [SerializeField] public float acceleration = 10, decceleration = 10;
+    [SerializeField] public bool enableJump = true;
 
     [Space]
     [Header("Collision Detection")]
-    public float groundCheckOffset;
-    public Vector2 groundCheckSize;
-    public LayerMask groundCheckMask;
+    [SerializeField] private float groundCheckOffset;
+    [SerializeField] private Vector2 groundCheckSize;
+    [SerializeField] private LayerMask groundCheckMask;
 
-    private PollingStation station;
-    private Rigidbody2D rig;
+    [Space]
+    [Header("Gravity Settings")]
+    [SerializeField] public float fallGravity;
+    [SerializeField] public float lowJumpGravity;
+    [SerializeField] public float upGravity;
 
 
-    public event System.Action<PollingStation> onJumpEvent;
-    public event ModifyVelocity onVelocityModifier;
-    public Vector2 velocity { get; set; }
-    public float jumpForce { get { return HeightToForce(jumpHeight, upGravity); } }
-    private int airJumpCount = 0;
+    [HideInInspector] public event ModifyVelocity onVelocityModifier;
+    [HideInInspector] private Vector3 groundCheckPos => transform.position + transform.up * (groundCheckOffset - 0.5f * groundCheckSize.y);
+    [HideInInspector] public Vector2 velocity { get; set; }
+    [HideInInspector] internal PollingStation station;
+    [HideInInspector] private Rigidbody2D rig;
+    [HideInInspector] public float jumpForce => HeightToForce(jumpHeight, upGravity);
+    [HideInInspector] public bool doJump { get; internal set; }
 
-    public bool grounded {
-        get {
-            return Physics2D.OverlapBox(groundCheckPos, groundCheckSize, transform.eulerAngles.z, groundCheckMask);
-        }
+    [HideInInspector] public bool grounded { get => GroundCheck(); }
+    [HideInInspector] public float gravity { get => DecideGravity(); }
+
+    [HideInInspector] internal float horizontalInput { get; set; }
+    [HideInInspector] public float facingDir { get; set; } = 1;
+    
+    [HideInInspector] public float jumpInput { get; private set; }
+    [HideInInspector] public const float jumpBufferStartTime = 0.1f;
+    [HideInInspector] public float koyoteTime = 0.3f;
+    [HideInInspector] private int airJumpCount = 0;
+    [HideInInspector] public float currentKoyoteTime { get; private set; }
+
+
+    public void Awake()
+    {
+        rig = GetComponent<Rigidbody2D>();
+        velocity = Vector2.zero;
     }
 
-    private Vector3 groundCheckPos => transform.position + transform.up * (groundCheckOffset - 0.5f * groundCheckSize.y);
-
-    public float gravity {
-        get {
-            if (velocity.y <= 0)
-                return fallGravity;
-            else if (velocity.y > 0 && !station.inputManager.GetButton(InputManager.InputPreset.Jump))
-                return lowJumpGravity;
-            return upGravity;
-        }
+    private void Update()
+    {
+        GetInputs();
     }
 
-    private float horizontalInput { get; set; }
-    public float facingDir { get; set; } = 1;
-    public float jumpInput { get; private set; }
-    public bool jumpPress { get; private set; }
-    public float currentKoyoteTime { get; private set; }
-    public float maxYVel { get; private set; }
-
-    public bool enableJump { get; set; } = true;
-
-
-    public static float HeightToForce(float height, float gravity) {
-        return Mathf.Sqrt(height * 2f * gravity);//returns initial upwards force required to reach given height based on a inputed average gravtity
+    private void FixedUpdate()
+    {
+        CalculateCoyoteTime();
+        ApplyGravity();
+        TryJump();
+        
+        UpdateVelocity();
     }
 
-
-    private void Awake() {
-        if (!PollingStation.TryGetPollingStation(ref station, gameObject)) {
+    private void TryJump(){
+        if (!enableJump)
+        {
             return;
         }
 
-        station.movementController = this;
-        rig = GetComponent<Rigidbody2D>();
-        velocity = Vector2.zero;
-        maxYVel = jumpForce;
+        if (currentKoyoteTime > 0)
+        {
+            //if on ground
+            //airJumpCount = 0; //Double Jump
+            if (jumpInput > 0)
+            {
+                DoJump(jumpForce);
+            }
+        }
+        //Double Jump
+        /*
+        else if (airJumpCount < 1) //not on ground but never jumped in the air
+            if (doJump) {//if jump pressed (again)
+                velocity = new Vector2(velocity.x, 0);//set velocity.y to 0
+                ApplyJump(jumpForce);
+                //Debug.Log("Double Jump");
+                airJumpCount++;
+            }*/
+
+        if (doJump)
+        {
+            doJump = false;
+        }
+        jumpInput = 0;
     }
 
+    private void DoJump(float force){
+        currentKoyoteTime = 0;
+        velocity += Vector2.up * force;
+        JumpEffects();
+    }
 
-    private void OnDrawGizmos() {
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //stop moving up, when you hit a ceiling
+        if (velocity.y > 0 && rig.velocity.y < 0.01f)
+        { 
+            velocity = new Vector2(velocity.x, 0);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
         Gizmos.color = grounded ? Color.green : Color.blue;
         Gizmos.DrawWireCube(groundCheckPos, groundCheckSize);
     }
 
-    public void ApplyForce(Vector2 force) { velocity += force; }
-
-    private void ApplyGravity() {
+    private void ApplyGravity()
+    {
         var vel = velocity;
         vel.y -= gravity * Time.fixedDeltaTime;
         if (grounded)
+        {
             vel.y = 0;
+        }
         velocity = vel;
     }
 
-
-    private void Update() {
-        horizontalInput = station.inputManager.GetSingleAxis(InputManager.InputPreset.Movement);
-        facingDir = Mathf.Abs(horizontalInput) > 0 ? Mathf.Sign(horizontalInput) : facingDir;//update facing direction
-
-        
-        if (station.inputManager.GetButtonDown(InputManager.InputPreset.Jump))
-            jumpPress = true;
-
-        if (station.inputManager.GetButton(InputManager.InputPreset.Jump))
-            jumpInput = jumpBufferTime;
-        else
-            jumpInput -= Time.deltaTime;
-    }
-
-
-    private void FixedUpdate() {
-        if (grounded)
-            currentKoyoteTime = koyoteTime;
-        else
-            currentKoyoteTime -= Time.fixedDeltaTime;
-
-        UpdateVelocity();
-        rig.velocity = velocity;
-
-        if (jumpPress)
-            jumpPress = false;
-    }
-
-    private void UpdateVelocity() {
-        ApplyGravity();
-        TryJump();
-
+    public void UpdateVelocity()
+    {
         Vector2 vel = velocity;
         if (horizontalInput == 0)
+        {
             vel.x = Mathf.Lerp(vel.x, 0, decceleration * Time.fixedDeltaTime);
-        else
-            vel.x = Mathf.Lerp(vel.x, horizontalInput * movementSpeed, acceleration * Time.fixedDeltaTime);
-        if (onVelocityModifier != null && onVelocityModifier.GetInvocationList().Length > 0)
-            onVelocityModifier(ref vel, this);
-        velocity = vel;
-    }
-
-    private void TryJump() {
-        if (!enableJump)
-            return;
-
-        if (currentKoyoteTime > 0) {//if on ground
-            airJumpCount = 0;
-            if (jumpInput > 0)
-                Jump(jumpForce);
         }
-        /*
-        else if (airJumpCount < 1) //not on ground but never jumped in the air
-            if (jumpPress) {//if jump pressed (again)
-                velocity = new Vector2(velocity.x, 0);//set velocity.y to 0
-                Jump(jumpForce);
-                //Debug.Log("Double Jump");
-                airJumpCount++;
-            }*/
+        else
+        {
+            vel.x = Mathf.Lerp(vel.x, horizontalInput * movementSpeed, acceleration * Time.fixedDeltaTime);
+        }
+        if (onVelocityModifier != null && onVelocityModifier.GetInvocationList().Length > 0)
+        {
+            onVelocityModifier(ref vel, this);
+        }
+
+        velocity = vel;
+        rig.velocity = velocity;
     }
 
-    public void Jump(float jumpForce) {
-        //This event is used to add effects like audio and particles - Spyro
-        if (onJumpEvent != null && onJumpEvent.GetInvocationList().Length > 0)
-            onJumpEvent(station);
-
-        jumpInput = 0;
-        currentKoyoteTime = 0;
-        maxYVel = jumpForce;
-
-        ApplyForce(Vector2.up * jumpForce);
+    public static float HeightToForce(float height, float gravity)
+    {
+        return Mathf.Sqrt(height * 2f * gravity);//returns initial upwards force required to reach given height based on a inputed average gravtity
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (velocity.y > 0 && rig.velocity.y < 0.01f) velocity = new Vector2(velocity.x, 0);//stop moving up, when you hit a ceiling
+    private bool GroundCheck()
+    {
+        return Physics2D.OverlapBox(groundCheckPos, groundCheckSize, transform.eulerAngles.z, groundCheckMask);
+    }
+    
+    private void GetInputs()
+    {
+        horizontalInput = GetHorizontalInput();
+        facingDir = Mathf.Abs(horizontalInput) > 0 ? Mathf.Sign(horizontalInput) : facingDir;
+        if (GetJumpInput())
+        {
+            jumpInput = jumpBufferStartTime;
+        }
+        else
+        {
+            jumpInput -= Time.deltaTime;
+        }
+        doJump = GetDoubleJumpInput();
+    }
+    internal abstract float DecideGravity();
+    internal abstract void JumpEffects();
+    internal abstract bool GetJumpInput();
+    internal abstract bool GetDoubleJumpInput();
+    internal abstract float GetHorizontalInput();
+    internal void CalculateCoyoteTime()
+    {
+        if (grounded)
+        {
+            currentKoyoteTime = koyoteTime;
+        }
+        else
+        {
+            currentKoyoteTime -= Time.fixedDeltaTime;
+        }
     }
 }
 

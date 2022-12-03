@@ -3,32 +3,44 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Linq;
 
-public class InputManager : MonoBehaviour {
+public class InputManager : MonoBehaviour
+{
 
     public InputActionAsset inputAsset;
 
-    public InputAction GetAction(string actionName) { return inputAsset.FindAction(actionName); }
-    public InputAction GetAction(InputPreset aPresetName) { return registeredInput[aPresetName]; }
+    public InputAction GetAction(string actionName)
+    {
+        return inputAsset.FindAction(actionName);
+    }
+    public InputAction GetAction(InputPreset aPresetName)
+    {
+        return registeredInput[aPresetName];
+    }
 
 
-    public bool GetButton(InputPreset aPreset) {
+    public bool GetButton(InputPreset aPreset)
+    {
         if (registeredInput == null || !registeredInput.ContainsKey(aPreset)) return false;
 
         var action = registeredInput[aPreset];
 
-        if (action.type == InputActionType.Button) {
-            return action.ReadValue<float>() > 0;
+        if (action.type == InputActionType.Button)
+        {
+            var value = action.ReadValue<float>();
+            return value > 0;
         }
         Debug.LogWarning($"Preset {aPreset} is not a Button!");
         return false;
     }
 
-    public bool GetButtonDown(InputPreset aPreset) {
+    public bool GetButtonDown(InputPreset aPreset)
+    {
         if (registeredInput == null || !registeredInput.ContainsKey(aPreset)) return false;
 
         var action = registeredInput[aPreset];
 
-        if (action.type == InputActionType.Button) {
+        if (action.type == InputActionType.Button)
+        {
             return action.ReadValue<float>() > 0 && action.triggered;
         }
 
@@ -36,12 +48,14 @@ public class InputManager : MonoBehaviour {
         return false;
     }
 
-    public float GetSingleAxis(InputPreset aPreset) {
+    public float GetSingleAxis(InputPreset aPreset)
+    {
         if (registeredInput == null || !registeredInput.ContainsKey(aPreset)) return 0;
 
         var action = registeredInput[aPreset];
 
-        if (action.type != InputActionType.Button) {
+        if (action.type != InputActionType.Button)
+        {
             return action.ReadValue<float>();
         }
         Debug.LogWarning($"Preset {aPreset} is not a Value Input!");
@@ -52,12 +66,14 @@ public class InputManager : MonoBehaviour {
 
     Dictionary<InputPreset, InputAction> registeredInput;
     Dictionary<InputPreset, List<string>> inputKeywords;
-    public enum InputPreset {
+    public enum InputPreset
+    {
         Movement, Jump
     }
 
 
-    private void Awake() {
+    private void Awake()
+    {
         inputKeywords = new Dictionary<InputPreset, List<string>>();
         registeredInput = new Dictionary<InputPreset, InputAction>();
 
@@ -66,12 +82,15 @@ public class InputManager : MonoBehaviour {
 
 
         if (inputAsset.actionMaps.Count > 0)
-            for (int i = 0; i < inputAsset.actionMaps[0].actions.Count; i++) {
+            for (int i = 0; i < inputAsset.actionMaps[0].actions.Count; i++)
+            {
                 var action = inputAsset.actionMaps[0].actions[i];
                 var name = action.name;
 
-                foreach (var keyword in inputKeywords) {
-                    if (keyword.Value.Any(k => name.ToLower().Contains(k.ToLower()))) {
+                foreach (var keyword in inputKeywords)
+                {
+                    if (keyword.Value.Any(k => name.ToLower().Contains(k.ToLower())))
+                    {
                         action.Enable();
                         registeredInput.Add(keyword.Key, action);
                         break;
