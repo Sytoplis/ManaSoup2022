@@ -143,7 +143,8 @@ public partial class MapGenerator : MonoBehaviour
     #region Wavefunction Collapse
 
     void CollapseBorderEmpty(ref Array2D<PossibilityTile> grid, in FlipSegment empty) {
-        ForceCollapse(ref grid, grid.GetIndex(new Vector2Int(0, 1)), new FlipSegment(startTile, false));
+        ForceCollapse(ref grid, grid.GetIndex(new Vector2Int(0, 1)),                           new FlipSegment(startTile, false));//generate start tile
+        ForceCollapse(ref grid, grid.GetIndex(new Vector2Int(grid.size.x-1, grid.size.y - 2)), new FlipSegment(endTile, false));//generate end tile
 
         
         for(int x = 0; x < grid.size.x; x++) {// collapse y = 0 and y = gridSize.y - 1

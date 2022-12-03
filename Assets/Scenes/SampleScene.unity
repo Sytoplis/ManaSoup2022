@@ -600,7 +600,7 @@ MonoBehaviour:
   - {fileID: 1165812951}
   - {fileID: 168311096}
   startTile: {fileID: 11400000, guid: 16176310dc2000f408359a531ad5082a, type: 2}
-  endTile: {fileID: 0}
+  endTile: {fileID: 11400000, guid: 67f37a87db2171e4eac3f88e9b44a5ae, type: 2}
   connectionSockets:
   - {fileID: 11400000, guid: 27482b45191db93408023d2f4bdb3fed, type: 2}
   createOnAwake: 1
