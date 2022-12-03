@@ -12,6 +12,7 @@ public abstract class MovementController : MonoBehaviour
     [SerializeField] public float movementSpeed = 10;
     [SerializeField] public float acceleration = 10, decceleration = 10;
     [SerializeField] public bool enableJump = true;
+    [SerializeField] internal Animator animator;
 
     [Space]
     [Header("Collision Detection")]
@@ -63,7 +64,6 @@ public abstract class MovementController : MonoBehaviour
         CalculateCoyoteTime();
         ApplyGravity();
         TryJump();
-        
         UpdateVelocity();
     }
 

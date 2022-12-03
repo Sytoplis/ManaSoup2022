@@ -30,6 +30,7 @@ public class PlayerController : MovementController
 
     internal override void JumpEffects()
     {
+        animator.SetTrigger("Jump");
         //This event is used to add effects like audio and particles - Spyro
         if (onJumpEvent != null && onJumpEvent.GetInvocationList().Length > 0)
         {

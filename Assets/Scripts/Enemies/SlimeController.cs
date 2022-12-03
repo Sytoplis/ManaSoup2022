@@ -4,9 +4,11 @@ public class SlimeController : MovementController
 {
 
     [Space]
+    [Header("Slime specific")]
     [SerializeField][Range(-1, 1)] private float maxLeftMovement;
     [SerializeField][Range(-1, 1)] private float maxRightMovement;
     [SerializeField][Range(0, 100)] private float jumpProbability;
+    
 
     internal override float DecideGravity()
     {
@@ -43,6 +45,6 @@ public class SlimeController : MovementController
     }
     internal override void JumpEffects()
     {
-        
+        animator.SetTrigger("Jump");
     }
 }
