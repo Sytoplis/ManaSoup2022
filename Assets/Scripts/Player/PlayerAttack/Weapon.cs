@@ -4,5 +4,8 @@ public class Weapon : ScriptableObject
 {
     public float cooldownTimeSeconds = 0.4f;
 
-    public virtual void OnAttack() {}
+    //NOTE: position is in local space and will give, when normalized, the direction of attack
+    public virtual void OnAttack(PlayerAttack.AttackInfo attackInfo) {}
+
+    public virtual void OnDrawWeaponGizmos(PlayerAttack.AttackInfo attackInfo) { }
 }
