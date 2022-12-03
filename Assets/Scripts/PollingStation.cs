@@ -3,6 +3,7 @@ using UnityEngine;
 public class PollingStation : MonoBehaviour
 {
     public InputManager inputManager;
+    public MapGenerator mapGenerator; 
     public MovementController movementController;
 
     public static bool TryGetPollingStation(ref PollingStation pollingStation, GameObject oj) {
