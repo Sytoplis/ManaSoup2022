@@ -149,7 +149,7 @@ public partial class MapGenerator : MonoBehaviour
             ForceCollapse(ref grid, grid.GetIndex(pos), empty);
         }
         
-        for (int y = 1; y < grid.size.x-1; y++) {// collapse x = 0 and x = gridSize.x - 1
+        for (int y = 1; y < grid.size.y-1; y++) {// collapse x = 0 and x = gridSize.x - 1
             Vector2Int pos = new Vector2Int(0, y);
             ForceCollapse(ref grid, grid.GetIndex(pos), empty);
 

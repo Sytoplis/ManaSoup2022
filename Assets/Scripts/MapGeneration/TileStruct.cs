@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 public class TileStruct : MonoBehaviour
 {
     public BoundsInt bounds;
+    [System.NonSerialized]
     public TileBase[] tiles;
 
     public void LoadTiles(bool flip) {
