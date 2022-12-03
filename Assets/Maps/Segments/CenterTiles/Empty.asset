@@ -20,3 +20,4 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d4d46e5e435fe314c86125fdff363de0, type: 2}
   weight: 0
   flippable: 0
+  prefab: {fileID: 0}
