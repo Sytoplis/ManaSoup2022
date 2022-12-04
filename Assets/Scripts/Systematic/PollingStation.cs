@@ -7,7 +7,13 @@ public class PollingStation : MonoBehaviour
     public PlayerController movementController;
     public Score score;
 
+    public static PollingStation instance;
     public static bool TryGetPollingStation(out PollingStation pollingStation, GameObject oj) {
+        if (instance != null) {
+            pollingStation = instance;
+            return true;
+        }
+
         pollingStation = FindObjectOfType<PollingStation>();
 
         if (!pollingStation) {
@@ -15,6 +21,7 @@ public class PollingStation : MonoBehaviour
             return false;
         }
 
+        instance = pollingStation;
         return true;
     }
 }

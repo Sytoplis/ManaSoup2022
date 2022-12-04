@@ -17,7 +17,7 @@ public class PlayerAttack : MonoBehaviour
 
         public AttackInfo(PollingStation station, PlayerAttack attacker) {
             playerPos = attacker.transform.position;
-            attackPos = (Vector2)Camera.current.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - playerPos;
+            attackPos = (Vector2)Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - playerPos;
             this.attacker = attacker;
 
             if (!station) facing = 1;
