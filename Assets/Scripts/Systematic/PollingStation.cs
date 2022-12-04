@@ -7,6 +7,12 @@ public class PollingStation : MonoBehaviour
     public PlayerController playerController;
     public Score score;
 
+
+    private void Awake() {
+        //DontDestroyOnLoad(gameObject);
+    }
+
+
     public static PollingStation instance;
     public static bool TryGetPollingStation(out PollingStation pollingStation, GameObject oj) {
         if (instance != null) {

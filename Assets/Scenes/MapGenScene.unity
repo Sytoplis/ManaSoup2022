@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 1919110762}
   mapGenerator: {fileID: 1105158122}
-  movementController: {fileID: 1760652791}
+  playerController: {fileID: 1760652797}
   score: {fileID: 332427244}
 --- !u!4 &4240468
 Transform:
@@ -172,7 +172,7 @@ Transform:
   - {fileID: 1105158123}
   - {fileID: 332427243}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &168311093
 GameObject:
@@ -338,7 +338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac32109b130af04c9e5cf5b383d4a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
   scoreText: {fileID: 1520882544}
 --- !u!1 &406215096
 GameObject:
@@ -436,7 +435,7 @@ RectTransform:
   - {fileID: 968191456}
   - {fileID: 797435439}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1157,8 +1156,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1338,17 +1337,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4008485725095752730, guid: 2fc9c92890d65ec47a9aeb5747572c20, type: 3}
   m_PrefabInstance: {fileID: 1760652789}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1760652791 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1676087409848937832, guid: 2fc9c92890d65ec47a9aeb5747572c20, type: 3}
-  m_PrefabInstance: {fileID: 1760652789}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1760652790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a3d11368a0fcfb468a4c7edf3ce8b13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1760652792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1366,6 +1354,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cb7cf14f6ced1be4e983f2effdd21619, type: 2}
   switchCooldown: 0.1
   current: 0
+--- !u!114 &1760652797 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1676087409848937832, guid: 2fc9c92890d65ec47a9aeb5747572c20, type: 3}
+  m_PrefabInstance: {fileID: 1760652789}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760652790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3d11368a0fcfb468a4c7edf3ce8b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1919110761
 GameObject:
   m_ObjectHideFlags: 0

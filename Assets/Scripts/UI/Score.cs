@@ -9,10 +9,11 @@ public class Score : MonoBehaviour
             return;
 
         station.score = this;
+        UpdateScore();
     }
 
-    [SerializeField]
-    private float score = 0.0f;
+    //[SerializeField]
+    private static float score = 0.0f;
 
     [SerializeField]
     private TextMeshProUGUI scoreText;
@@ -21,6 +22,9 @@ public class Score : MonoBehaviour
     public void ChangeScore(float change) {
         score += change;
         UpdateScore();
+    }
+    public static void SetScore(float set) {
+        score = set;
     }
 
 

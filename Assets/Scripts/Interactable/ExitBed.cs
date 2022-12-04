@@ -7,7 +7,9 @@ public class ExitBed : Interactable
 
     public override void OnInteract() {
         base.OnInteract();
+
         SceneManager.LoadScene(buildIdx, LoadSceneMode.Single);
+
         Debug.Log("EXIT map");
     }
 }

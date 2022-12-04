@@ -44,6 +44,7 @@ public class PlayerHealth : Damagable
 
     public override void OnDeath() {
         base.OnDeath();
+        Score.SetScore(0.0f);//clear score on death
         SceneManager.LoadScene(GameOverScene, LoadSceneMode.Single);
     }
 }

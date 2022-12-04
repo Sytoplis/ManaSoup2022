@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 315222202}
   mapGenerator: {fileID: 0}
-  movementController: {fileID: 0}
+  playerController: {fileID: 0}
   score: {fileID: 0}
 --- !u!4 &274795941
 Transform:
