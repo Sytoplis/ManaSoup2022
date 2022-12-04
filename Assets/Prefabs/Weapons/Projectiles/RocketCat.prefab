@@ -126,7 +126,7 @@ MonoBehaviour:
   acceleration: 5
   impactDamage: 1
   destroyOnImpact: 1
-  spawnOnImpact: {fileID: 0}
+  spawnOnImpact: {fileID: 5167698884561055862, guid: 763b8ad4a594bc54199b6123c5e3a96b, type: 3}
 --- !u!95 &1663182038069566244
 Animator:
   serializedVersion: 4

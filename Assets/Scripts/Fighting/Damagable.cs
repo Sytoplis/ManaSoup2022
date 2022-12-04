@@ -4,8 +4,8 @@ public class Damagable : MonoBehaviour
 {
     public float health = 10.0f;
 
-    public virtual void OnHit(MonoBehaviour attacker, float damage) {
-        if (attacker.gameObject == gameObject) return;//can not hurt self
+    public virtual void OnHit(GameObject attacker, float damage) {
+        if (attacker == gameObject) return;//can not hurt self
 
         health = health - damage;
         if(health <= 0.0f) {

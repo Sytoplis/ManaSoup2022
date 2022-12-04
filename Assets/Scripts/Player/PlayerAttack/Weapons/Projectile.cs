@@ -4,7 +4,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [HideInInspector]
-    public MonoBehaviour source;
+    public GameObject source;
     public float initVel = 1.0f;
     public float acceleration = 0.0f;
 
@@ -33,6 +33,7 @@ public class Projectile : MonoBehaviour
 
         if (spawnOnImpact)
             Instantiate(spawnOnImpact, transform.position, Quaternion.identity, transform.parent);
+            
 
         if(destroyOnImpact)
             Destroy(gameObject);

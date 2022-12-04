@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "new Ranged Weapon", menuName = "Weapons/RangedWeapon")]
 public class RangedWeapon : Weapon
@@ -19,7 +18,7 @@ public class RangedWeapon : Weapon
         Projectile projectile = Instantiate(projectilePrefab, GetProjectileSpawnPos(attackInfo, out Quaternion rot), rot, attackInfo.attacker.GetProjectileParent())//spawn a projectile
                                 .GetComponent<Projectile>();
 
-        projectile.source = attackInfo.attacker;
+        projectile.source = attackInfo.attacker.gameObject;
     }
 
     public override void OnDrawWeaponGizmos(PlayerAttack.AttackInfo attackInfo) {

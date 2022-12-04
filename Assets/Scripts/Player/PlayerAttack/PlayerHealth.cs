@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : Damagable
 {
@@ -8,6 +9,8 @@ public class PlayerHealth : Damagable
     private Animator[] hearts;
 
     private float maxHealth;
+
+    public int GameOverScene;
 
     public void Start() {
         maxHealth = health;//maxHealth is health at the start
@@ -26,16 +29,21 @@ public class PlayerHealth : Damagable
     }
 
 
-    public override void OnHit(MonoBehaviour attacker, float damage) {
+    public override void OnHit(GameObject attacker, float damage) {
         base.OnHit(attacker, damage);
         UpdateHeart();
     }
-
 
     [ContextMenu("Update Heart")]
     private void UpdateHeart() {
         for (int i = 0; i < hearts.Length; i++) {
             hearts[i].SetBool("Pop", health <= i);//0 - 0.999 one heart, 1 - 1.9999 two hearts, etc.
         }
+    }
+
+
+    public override void OnDeath() {
+        base.OnDeath();
+        SceneManager.LoadScene(GameOverScene, LoadSceneMode.Single);
     }
 }

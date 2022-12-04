@@ -141,14 +141,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532964343}
-  m_LocalRotation: {x: 0, y: 0, z: -0.35673797, w: 0.9342045}
-  m_LocalPosition: {x: 0.156, y: -0.351, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.616555, w: 0.78731185}
+  m_LocalPosition: {x: -0.103, y: -0.345, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4008485725095752727}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -41.8}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -76.13}
 --- !u!1 &4008485725095752730
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184676930daea7e4b8f799cf0c2466a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 9e380ef92c769c048b18e0f5012417db, type: 2}
+  weapon: {fileID: 11400000, guid: cb7cf14f6ced1be4e983f2effdd21619, type: 2}
   playerHand: {fileID: 1532964344}
 --- !u!114 &1760652797
 MonoBehaviour:
@@ -376,3 +376,4 @@ MonoBehaviour:
   health: 3
   healthPrefab: {fileID: 1419422926554726970, guid: df0942ae4caac924caacc28ae6793c67, type: 3}
   healthParent: {fileID: 0}
+  GameOverScene: 2

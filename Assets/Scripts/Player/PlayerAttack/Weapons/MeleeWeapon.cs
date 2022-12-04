@@ -19,7 +19,7 @@ public class MeleeWeapon : Weapon
         Collider2D[] colliders = Physics2D.OverlapBoxAll(currentHitBounds.center, currentHitBounds.size, 0.0f);
         foreach(Collider2D col in colliders) {
             if(col.TryGetComponent(out Damagable damagable)) {
-                damagable.OnHit(attackInfo.attacker, damage);
+                damagable.OnHit(attackInfo.attacker.gameObject, damage);
             }
         }
     }
