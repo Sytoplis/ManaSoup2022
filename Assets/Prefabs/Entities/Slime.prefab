@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   range: 1
+  attackDelayInSeconds: 1
   cooldownInSeconds: 5
   objectToAttack: {fileID: 0}
 --- !u!114 &7513152125928085953
@@ -217,4 +218,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54a0a079862da964385d0a1f16e69681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 9
+  health: 3

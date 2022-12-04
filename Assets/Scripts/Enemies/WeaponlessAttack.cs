@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class WeaponlessAttack : MonoBehaviour, IAttack
@@ -5,6 +6,7 @@ public class WeaponlessAttack : MonoBehaviour, IAttack
     [HideInInspector] private PollingStation pollingStation;
     [SerializeField] private float damage;
     [SerializeField] private float range;
+    [SerializeField] private float attackDelayInSeconds;
     [SerializeField] private float cooldownInSeconds;
     [SerializeField] private Damagable objectToAttack;
     [HideInInspector] public Animator animator { get; set; }
@@ -34,9 +36,14 @@ public class WeaponlessAttack : MonoBehaviour, IAttack
                 return;
             }
             lastAttackTime = Time.timeAsDouble;
-            Debug.Log($"Distance: {distance.magnitude}");
-            animator.SetTrigger("Attack");
-            objectToAttack?.OnHit(this.gameObject, damage);
+            StartCoroutine(Attack());
+            
         }
+    }
+
+    private IEnumerator Attack(){
+        yield return new WaitForSeconds(attackDelayInSeconds);
+        animator.SetTrigger("Attack");
+        objectToAttack?.OnHit(this.gameObject, damage);
     }
 }
