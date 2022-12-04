@@ -15,6 +15,6 @@ public class Damagable : MonoBehaviour
     }
 
     public virtual void OnDeath() {
-
+        Destroy(gameObject);
     }
 }
