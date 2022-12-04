@@ -17,5 +17,5 @@ MonoBehaviour:
   handPrefab: {fileID: 1272457953912989699, guid: 33ab36c7ca83a2a4894226b1088dc72b, type: 3}
   damage: 1
   hitBounds:
-    m_Center: {x: 1.3, y: 0.1, z: 0}
-    m_Extent: {x: 0.75, y: 1, z: 1}
+    m_Center: {x: 0.66, y: -0.11, z: 0}
+    m_Extent: {x: 0.36, y: 0.43, z: 1}

@@ -47,11 +47,13 @@ public class PlayerController : MovementController
         animator.SetFloat("Speed", speed);
         if (speed < 0)
         {
-            spriteRenderer.flipX = true;
+            //spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1.0f, transform.localScale.y, transform.localScale.z);
         }
         else if (speed > 0)
         {
-            spriteRenderer.flipX = false;
+            //spriteRenderer.flipX = false;
+            transform.localScale = new Vector3(+1.0f, transform.localScale.y, transform.localScale.z);
         }
         return speed;
     }
