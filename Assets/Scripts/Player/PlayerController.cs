@@ -12,7 +12,7 @@ public class PlayerController : MovementController
         animator = GetComponent<Animator>();
         if (PollingStation.TryGetPollingStation(out station, gameObject))
         {
-            station.movementController = this;
+            station.playerController = this;
         }
         base.Awake();
     }

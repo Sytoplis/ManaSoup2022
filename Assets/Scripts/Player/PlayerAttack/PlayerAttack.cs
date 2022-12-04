@@ -28,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
             this.attacker = attacker;
 
             if (!station) facing = 1;
-            else facing = station.movementController.facingDir;
+            else facing = station.playerController.facingDir;
         }
     }
 

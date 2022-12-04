@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1279380426630744901}
   - component: {fileID: 1279380426630744902}
   - component: {fileID: 1279380426630744899}
+  - component: {fileID: 198591531}
+  - component: {fileID: -6431293532441544586}
   m_Layer: 7
   m_Name: Slime
   m_TagString: Untagged
@@ -137,13 +139,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2e48e5f51b8f84193587eafa2323cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 2
-  movementSpeed: 10
+  jumpHeight: 1
+  movementSpeed: 1
   acceleration: 10
   decceleration: 10
   enableJump: 1
   groundCheckOffset: -0.5
-  groundCheckSize: {x: 0.4, y: 0.01}
+  groundCheckSize: {x: 0.4, y: 0.1}
   groundCheckMask:
     serializedVersion: 2
     m_Bits: 1
@@ -151,9 +153,7 @@ MonoBehaviour:
   lowJumpGravity: 15
   upGravity: 10
   koyoteTime: 0.3
-  maxLeftMovement: -1
-  maxRightMovement: 1
-  jumpProbability: 0.5
+  jumpProbability: 100
 --- !u!95 &1279380426630744899
 Animator:
   serializedVersion: 4
@@ -174,3 +174,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &198591531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279380426630744921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8ad32ff13c1c241b9b89002601f3f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementController: {fileID: 0}
+  jumpingOffset: 0.1
+--- !u!114 &-6431293532441544586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279380426630744921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8bc99b0729eed24799895aa74b4bb29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  range: 1
+  cooldownInSeconds: 5
+  objectToAttack: {fileID: 0}

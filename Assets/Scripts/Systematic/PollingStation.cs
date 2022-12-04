@@ -4,7 +4,7 @@ public class PollingStation : MonoBehaviour
 {
     public InputManager inputManager;
     public MapGenerator mapGenerator; 
-    public PlayerController movementController;
+    public PlayerController playerController;
     public Score score;
 
     public static PollingStation instance;
