@@ -20,7 +20,8 @@ public class PlayerAttack : MonoBehaviour
 
         public AttackInfo(PollingStation station, PlayerAttack attacker) {
             playerPos = attacker.transform.position;
-            attackPos = (Vector2)Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - playerPos;
+            Vector2 mousePos = Mouse.current.position.ReadValue();
+            attackPos = (Vector2)Camera.main.ScreenToWorldPoint(mousePos) - playerPos;
             this.attacker = attacker;
 
             if (!station) facing = 1;
@@ -58,6 +59,15 @@ public class PlayerAttack : MonoBehaviour
         for (int i = playerHand.childCount-1; i >= 0; i--) {
             Destroy(playerHand.GetChild(i).gameObject);
         }
+    }
+
+
+    private Transform projectileParent;
+    public Transform GetProjectileParent() {
+        if(projectileParent == null) {
+            projectileParent = new GameObject("ProjectileParent").transform;
+        }
+        return projectileParent;
     }
 
 
