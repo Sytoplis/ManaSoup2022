@@ -3,6 +3,8 @@ using UnityEngine;
 public class Weapon : ScriptableObject
 {
     public float cooldownTimeSeconds = 0.4f;
+    public Sprite sprite;
+    public GameObject handPrefab;
 
     //NOTE: position is in local space and will give, when normalized, the direction of attack
     public virtual void OnAttack(PlayerAttack.AttackInfo attackInfo) {}

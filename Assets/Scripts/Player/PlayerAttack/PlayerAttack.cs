@@ -3,10 +3,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public Weapon weapon;
+    [SerializeField]
+    private Weapon weapon;
+    public Transform playerHand;
     private PollingStation station;
 
     private float currentCooldown = 0;
+    private SpriteRenderer weaponRenderer;
 
 
     public struct AttackInfo {
@@ -31,6 +34,10 @@ public class PlayerAttack : MonoBehaviour
             return;
     }
 
+    private void Start() {
+        SetWeapon(weapon);
+    }
+
     private void Update() {
         currentCooldown -= Time.deltaTime;
 
@@ -40,6 +47,19 @@ public class PlayerAttack : MonoBehaviour
                 weapon.OnAttack(new AttackInfo(station, this));
             }
     }
+
+
+    public void SetWeapon(Weapon weapon) {
+        ClearPlayerHand();
+        this.weapon = weapon;        
+        weaponRenderer = Instantiate(weapon.handPrefab, playerHand).GetComponent<SpriteRenderer>();//Create weapon renderer
+    }
+    private void ClearPlayerHand() {
+        for (int i = playerHand.childCount-1; i >= 0; i--) {
+            Destroy(playerHand.GetChild(i).gameObject);
+        }
+    }
+
 
     private void OnDrawGizmosSelected() {
         if(weapon != null)
