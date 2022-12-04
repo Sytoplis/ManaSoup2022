@@ -1278,10 +1278,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 519420031, guid: 2fc9c92890d65ec47a9aeb5747572c20, type: 3}
+      propertyPath: orthographic size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1760652797, guid: 2fc9c92890d65ec47a9aeb5747572c20, type: 3}
       propertyPath: healthParent
       value: 
       objectReference: {fileID: 797435439}
+    - target: {fileID: 1676087409848937832, guid: 2fc9c92890d65ec47a9aeb5747572c20, type: 3}
+      propertyPath: jumpHeight
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676087409848937832, guid: 2fc9c92890d65ec47a9aeb5747572c20, type: 3}
+      propertyPath: lowJumpGravity
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4008485725095752727, guid: 2fc9c92890d65ec47a9aeb5747572c20, type: 3}
       propertyPath: m_RootOrder
       value: 1
