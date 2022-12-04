@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Animator))]
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField]
@@ -10,6 +11,8 @@ public class PlayerAttack : MonoBehaviour
 
     private float currentCooldown = 0;
     private SpriteRenderer weaponRenderer;
+
+    private Animator animator;
 
 
     public struct AttackInfo {
@@ -31,6 +34,7 @@ public class PlayerAttack : MonoBehaviour
 
 
     private void Awake() {
+        animator = GetComponent<Animator>();
         if(PollingStation.TryGetPollingStation(out station, gameObject))
             return;
     }
@@ -46,6 +50,7 @@ public class PlayerAttack : MonoBehaviour
             if(currentCooldown <= 0) {
                 currentCooldown = weapon.cooldownTimeSeconds;
                 weapon.OnAttack(new AttackInfo(station, this));
+                animator.SetTrigger("Attack");
             }
     }
 
