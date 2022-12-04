@@ -1,5 +1,4 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -20,7 +19,7 @@ public class FadeIn : MonoBehaviour
         lights = GetComponentsInChildren<Light2D>();
 
         for (int i = 0; i < texts.Length; i++) {
-            texts[i].color = texts[i].color.WithAlpha(0.0f);
+            texts[i].color = texts[i].color.ChangeAlpha(0.0f);
         }
             
         for (int i = 0; i < lights.Length; i++)
@@ -39,7 +38,7 @@ public class FadeIn : MonoBehaviour
             float alpha = texts[i].color.a;
             alpha = Mathf.Min(maxTextTransparency, alpha + incr * maxTextTransparency);
             change |= alpha != texts[i].color.a;//set change to true if there was a change, else keep it as it was
-            texts[i].color = texts[i].color.WithAlpha(alpha);
+            texts[i].color = texts[i].color.ChangeAlpha(alpha);
         }
 
         for (int i = 0; i < lights.Length; i++) {

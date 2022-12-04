@@ -10,4 +10,8 @@ public static class UnityExtensions
         return UnityEngine.Random.Range(0, length);
     }
 
+    public static Color ChangeAlpha(this Color clr, float alpha) {
+        return new Color(clr.r, clr.g, clr.b, alpha);
+    }
+
 }
