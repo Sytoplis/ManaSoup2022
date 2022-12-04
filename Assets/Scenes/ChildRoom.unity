@@ -2423,6 +2423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionLightPrefab: {fileID: 8819321281346202272, guid: 4de0e50cad0c2744ab4ce5ed19aceec9, type: 3}
+  buildIdx: 1
 --- !u!1 &2138847246
 GameObject:
   m_ObjectHideFlags: 0
